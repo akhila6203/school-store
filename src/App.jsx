@@ -18,6 +18,12 @@ import Checkout from "./pages/Checkout";
 import Profile from "./pages/Profile";
 import OrderSuccess from "./pages/OrderSuccess";
 
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import ReturnPolicy from "./pages/ReturnPolicy";
+import RefundPolicy from "./pages/RefundPolicy";
+import ShippingPolicy from "./pages/ShippingPolicy";
+import CancellationPolicy from "./pages/CancellationPolicy";
+
 
 export default function App() {
 
@@ -137,6 +143,31 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
+
+            <Route
+  path="/privacy-policy"
+  element={<PrivacyPolicy />}
+/>
+
+<Route
+  path="/return-policy"
+  element={<ReturnPolicy />}
+/>
+
+<Route
+  path="/refund-policy"
+  element={<RefundPolicy />}
+/>
+
+<Route
+  path="/shipping-policy"
+  element={<ShippingPolicy />}
+/>
+
+<Route
+  path="/cancellation-policy"
+  element={<CancellationPolicy />}
+/>
 
           </Routes>
 
