@@ -623,38 +623,70 @@ export function StoreProvider({ children }) {
      CURRENT KIT
   ======================================================= */
 
-  const currentKit =
-    useMemo(() => {
+const currentKit = useMemo(() => {
+  if (!student) return null;
 
-      if (!student) return null;
+  const normalize = (value) =>
+    String(value ?? "").trim().toLowerCase();
 
-      return (
-        kits.find(
-          (kit) =>
-            kit.className ===
-            student.className
-        ) || null
-      );
+  return (
+    kits.find(
+      (kit) =>
+        normalize(kit.className) ===
+          normalize(student.className) &&
+        normalize(kit.gender) ===
+          normalize(student.gender)
+    ) || null
+  );
+}, [student]);
 
-    }, [student]);
+  // const currentKit =
+  //   useMemo(() => {
+
+  //     if (!student) return null;
+
+  //     return (
+  //       kits.find(
+  //         (kit) =>
+  //           kit.className ===
+  //           student.className
+  //       ) || null
+  //     );
+
+  //   }, [student]);
 
 
   /* =======================================================
      INDIVIDUAL PRODUCTS
   ======================================================= */
 
-  const availableProducts =
-    useMemo(() => {
+const availableProducts = useMemo(() => {
+  if (!student) return [];
 
-      if (!student) return [];
+  const normalize = (value) =>
+    String(value ?? "").trim().toLowerCase();
 
-      return individualProducts.filter(
-        (product) =>
-          product.className ===
-          student.className
-      );
+  return individualProducts.filter(
+    (product) =>
+      normalize(product.className) ===
+        normalize(student.className) &&
+      normalize(product.gender) ===
+        normalize(student.gender)
+  );
+}, [student]);
 
-    }, [student]);
+  // const availableProducts =
+  //   useMemo(() => {
+
+  //     if (!student) return [];
+
+  //     return individualProducts.filter(
+  //       (product) =>
+  //         product.className ===
+  //         student.className
+  //     );
+
+  //   }, [student]);
 
 
   /* =======================================================
@@ -1021,12 +1053,13 @@ const updateQuantity = (
     Below ₹1000 = ₹5
   */
 
-  const shippingAmount =
-    cartSubtotal >= 1000
-      ? 0
-      : cartSubtotal > 0
-      ? 5
-      : 0;
+  // const shippingAmount =
+  //   cartSubtotal >= 1000
+  //     ? 0
+  //     : cartSubtotal > 0
+  //     ? 5
+  //     : 0;
+  const shippingAmount = cart.length > 0 ? 200 : 0;
 
 
   /*

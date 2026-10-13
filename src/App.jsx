@@ -1,5 +1,7 @@
+
 import {
   BrowserRouter,
+  Navigate,
   Route,
   Routes,
 } from "react-router-dom";
@@ -14,7 +16,6 @@ import KitDetails from "./pages/KitDetails";
 import ProductDetails from "./pages/ProductDetails";
 import ClassProducts from "./pages/ClassProducts";
 import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
 import Profile from "./pages/Profile";
 import OrderSuccess from "./pages/OrderSuccess";
 
@@ -24,36 +25,15 @@ import RefundPolicy from "./pages/RefundPolicy";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import CancellationPolicy from "./pages/CancellationPolicy";
 
-
 export default function App() {
-
   return (
     <BrowserRouter>
-
-      <div
-        className="
-          flex
-          min-h-screen
-          flex-col
-        "
-      >
-
+      <div className="flex min-h-screen flex-col bg-[#F7F9FC]">
         <Header />
 
-
-        <div className="flex-1">
-
+        <main className="flex-1">
           <Routes>
-
-            {/* HOME */}
-
-            <Route
-              path="/"
-              element={<Home />}
-            />
-
-
-            {/* KIT */}
+            <Route path="/" element={<Home />} />
 
             <Route
               path="/kit"
@@ -64,17 +44,6 @@ export default function App() {
               }
             />
 
-
-            {/* =================================================
-                CLASS PRODUCTS
-
-                NEW PAGE
-
-                Home class card
-                -> /class-products
-                -> logged-in student's class products only
-            ================================================== */}
-
             <Route
               path="/class-products"
               element={
@@ -83,9 +52,6 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
-
-
-            {/* PRODUCT DETAILS */}
 
             <Route
               path="/product/:id"
@@ -96,9 +62,6 @@ export default function App() {
               }
             />
 
-
-            {/* CART */}
-
             <Route
               path="/cart"
               element={
@@ -108,20 +71,10 @@ export default function App() {
               }
             />
 
-
-            {/* CHECKOUT */}
-
             <Route
               path="/checkout"
-              element={
-                <ProtectedRoute>
-                  <Checkout />
-                </ProtectedRoute>
-              }
+              element={<Navigate to="/cart" replace />}
             />
-
-
-            {/* SUCCESS */}
 
             <Route
               path="/order-success"
@@ -131,9 +84,6 @@ export default function App() {
                 </ProtectedRoute>
               }
             />
-
-
-            {/* PROFILE */}
 
             <Route
               path="/profile"
@@ -145,42 +95,228 @@ export default function App() {
             />
 
             <Route
-  path="/privacy-policy"
-  element={<PrivacyPolicy />}
-/>
+              path="/privacy-policy"
+              element={<PrivacyPolicy />}
+            />
 
-<Route
-  path="/return-policy"
-  element={<ReturnPolicy />}
-/>
+            <Route
+              path="/return-policy"
+              element={<ReturnPolicy />}
+            />
 
-<Route
-  path="/refund-policy"
-  element={<RefundPolicy />}
-/>
+            <Route
+              path="/refund-policy"
+              element={<RefundPolicy />}
+            />
 
-<Route
-  path="/shipping-policy"
-  element={<ShippingPolicy />}
-/>
+            <Route
+              path="/shipping-policy"
+              element={<ShippingPolicy />}
+            />
 
-<Route
-  path="/cancellation-policy"
-  element={<CancellationPolicy />}
-/>
+            <Route
+              path="/cancellation-policy"
+              element={<CancellationPolicy />}
+            />
 
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-
-        </div>
-
+        </main>
 
         <Footer />
-
-
         <LoginModal />
-
       </div>
-
     </BrowserRouter>
   );
 }
+
+
+
+
+
+// import {
+//   BrowserRouter,
+//   Route,
+//   Routes,
+// } from "react-router-dom";
+
+// import Header from "./components/Header";
+// import Footer from "./components/Footer";
+// import LoginModal from "./components/LoginModal";
+// import ProtectedRoute from "./components/ProtectedRoute";
+
+// import Home from "./pages/Home";
+// import KitDetails from "./pages/KitDetails";
+// import ProductDetails from "./pages/ProductDetails";
+// import ClassProducts from "./pages/ClassProducts";
+// import Cart from "./pages/Cart";
+// import Checkout from "./pages/Checkout";
+// import Profile from "./pages/Profile";
+// import OrderSuccess from "./pages/OrderSuccess";
+
+// import PrivacyPolicy from "./pages/PrivacyPolicy";
+// import ReturnPolicy from "./pages/ReturnPolicy";
+// import RefundPolicy from "./pages/RefundPolicy";
+// import ShippingPolicy from "./pages/ShippingPolicy";
+// import CancellationPolicy from "./pages/CancellationPolicy";
+
+
+// export default function App() {
+
+//   return (
+//     <BrowserRouter>
+
+//       <div
+//         className="
+//           flex
+//           min-h-screen
+//           flex-col
+//         "
+//       >
+
+//         <Header />
+
+
+//         <div className="flex-1">
+
+//           <Routes>
+
+//             {/* HOME */}
+
+//             <Route
+//               path="/"
+//               element={<Home />}
+//             />
+
+
+//             {/* KIT */}
+
+//             <Route
+//               path="/kit"
+//               element={
+//                 <ProtectedRoute>
+//                   <KitDetails />
+//                 </ProtectedRoute>
+//               }
+//             />
+
+
+//             {/* =================================================
+//                 CLASS PRODUCTS
+
+//                 NEW PAGE
+
+//                 Home class card
+//                 -> /class-products
+//                 -> logged-in student's class products only
+//             ================================================== */}
+
+//             <Route
+//               path="/class-products"
+//               element={
+//                 <ProtectedRoute>
+//                   <ClassProducts />
+//                 </ProtectedRoute>
+//               }
+//             />
+
+
+//             {/* PRODUCT DETAILS */}
+
+//             <Route
+//               path="/product/:id"
+//               element={
+//                 <ProtectedRoute>
+//                   <ProductDetails />
+//                 </ProtectedRoute>
+//               }
+//             />
+
+
+//             {/* CART */}
+
+//             <Route
+//               path="/cart"
+//               element={
+//                 <ProtectedRoute>
+//                   <Cart />
+//                 </ProtectedRoute>
+//               }
+//             />
+
+
+//             {/* CHECKOUT */}
+
+//             <Route
+//               path="/checkout"
+//               element={
+//                 <ProtectedRoute>
+//                   <Checkout />
+//                 </ProtectedRoute>
+//               }
+//             />
+
+
+//             {/* SUCCESS */}
+
+//             <Route
+//               path="/order-success"
+//               element={
+//                 <ProtectedRoute>
+//                   <OrderSuccess />
+//                 </ProtectedRoute>
+//               }
+//             />
+
+
+//             {/* PROFILE */}
+
+//             <Route
+//               path="/profile"
+//               element={
+//                 <ProtectedRoute>
+//                   <Profile />
+//                 </ProtectedRoute>
+//               }
+//             />
+
+//             <Route
+//   path="/privacy-policy"
+//   element={<PrivacyPolicy />}
+// />
+
+// <Route
+//   path="/return-policy"
+//   element={<ReturnPolicy />}
+// />
+
+// <Route
+//   path="/refund-policy"
+//   element={<RefundPolicy />}
+// />
+
+// <Route
+//   path="/shipping-policy"
+//   element={<ShippingPolicy />}
+// />
+
+// <Route
+//   path="/cancellation-policy"
+//   element={<CancellationPolicy />}
+// />
+
+//           </Routes>
+
+//         </div>
+
+
+//         <Footer />
+
+
+//         <LoginModal />
+
+//       </div>
+
+//     </BrowserRouter>
+//   );
+// }

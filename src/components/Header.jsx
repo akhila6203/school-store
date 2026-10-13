@@ -58,121 +58,37 @@ export default function Header() {
         {/* =========================================
             LEFT - LOGO
         ========================================== */}
-{/* SCHOOL BRAND + BRASS LEAF LOGO */}
+
 <div className="flex shrink-0 items-center">
-
-  {/* LEFT SIDE - SCHOOL CONTENT
-      width/spacing reduced
-  */}
   <div
     className="
       flex
-      h-[64px]
+      h-[56px]
+      w-[125px]
       items-center
-      gap-1.5
-      bg-white
-      pr-2
-
-      sm:h-[70px]
-      sm:gap-2
-      sm:pr-2.5
-
-      lg:h-[76px]
-    "
-  >
-    <div
-      className="
-        flex
-        h-[30px]
-        w-[30px]
-        shrink-0
-        items-center
-        justify-center
-
-        rounded-[6px]
-        bg-[#4F39F6]
-
-        text-[14px]
-        font-black
-        text-white
-
-        sm:h-[32px]
-        sm:w-[32px]
-      "
-    >
-      S
-    </div>
-
-    <div className="min-w-0">
-      <h2
-        className="
-          whitespace-nowrap
-          text-[13px]
-          font-black
-          leading-tight
-          text-[#07152D]
-
-          sm:text-[14px]
-          lg:text-[15px]
-        "
-      >
-        School
-      </h2>
-
-      <p
-        className="
-          mt-[1px]
-          hidden
-          whitespace-nowrap
-
-          text-[7px]
-          font-medium
-          text-[#71809D]
-
-          sm:block
-          sm:text-[8px]
-
-          lg:text-[9px]
-        "
-      >
-        School essentials made simple
-      </p>
-    </div>
-  </div>
-
-
-  {/* BRASS LEAF LOGO
-      height + width increased
-  */}
-  <div
-    className="
-      flex
-      h-[64px]
-      w-[88px]
-      shrink-0
-      items-center
-      justify-center
+      justify-start
       overflow-hidden
 
-      sm:h-[70px]
-      sm:w-[100px]
+      sm:h-[62px]
+      sm:w-[145px]
 
-      lg:h-[76px]
-      lg:w-[112px]
+      lg:h-[70px]
+      lg:w-[165px]
     "
   >
     <img
       src={brassLeafLogo}
-      alt="Brass Leaf"
+      alt="Brassleaf"
       className="
         h-full
         w-full
         object-contain
+        object-left
       "
     />
   </div>
-
 </div>
+
 
         {/* =========================================
             TABLET / DESKTOP RIGHT SIDE
